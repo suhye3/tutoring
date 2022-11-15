@@ -1,61 +1,58 @@
-# 1. 비어있는 학생(Student) 클래스를 정의하시오.
-# 2. 학생(Student) 클래스의 인스턴스를 생성하고, 본인의 이름 변수(ex.seyeon)로 바인딩하시오.
-# 3. 학생(Student) 클래스에 (이름, 국어점수, 수학점수, 영어점수, 과학점수)를 받는 생성자를 추가하시오.
-# 4. 학생(Student) 클래스에 각 과목 점수의 합을 구하는 get_sum() 함수를 추가하시오.
-# 5. 학생(Student) 클래스에 과목 점수의 평균을 구하는 get_avg() 함수를 추가하시오,
-# 5. (2)에서 생성한 인스턴스를 통해 (5)에서 만든 함수에 접근해 이름과 평균을 출력하시오.
+# 1. 비어있는 사람(Human) 클래스를 정의하시오.
+# 2. 사람 (Human) 클래스의 인스턴스를 생성하고, 본인의 이름 변수(ex.seyeon)로 바인딩하시오.
+# 3. 사람 (Human) 클래스에 "응애응애"를 출력하는 생성자를 추가하시오.
+# 4. 사람(Human) 클래스에 (이름, 나이, 성별)을 받는 생성자를 추가하시오.
+# 5. 사람(Human) 클래스에 (이름, 나이, 성별)을 출력할 수 있는 printName(), printAge(), printSex() 함수를 추가하시오.
+# 6. (2)에서 생성한 인스턴스를 통해 (5)에서 만든 함수에 접근해 각각 이름, 나이, 성별을 출력하시오.
 
-class Student:
-    def __init__(self, name, korean, math, english, science):
+class Human:
+    def __init__(self, name, age, sex):
         self.name = name
-        self.korean = korean
-        self.math = math
-        self.english = english
-        self.science = science
+        self.age = age
+        self.sex = sex
+        print('응애응애')
 
-    def get_sum(self):
-        return self.korean + self.math + self.english + self.science
-
-    def get_avg(self):
-        return self.get_sum()/4 
+    def printName(self):
+        print(self.name)
+    def printAge(self):
+        print(self.age)
+    def printSex(self):
+        print(self.sex)
     
-suhye = Student('수혜', 100, 50, 50, 100)
-print("합계 :", suhye.get_sum())
-print("평균: ", suhye.get_avg())
+suhye = Human('수혜', '24', '여자')
+suhye.printName()
+suhye.printAge()
+suhye.printSex()
 
 
-# 1. 계산기(Calc)라는 클래스를 생성하시오.
-# 2. 계산기(Calc) 클래스의 인스턴스를 생성하시오.
-# 3. 계산기(Calc) 클래스에 연산자(operator), 첫번째 수, 두번째 수를 인자로 입력받는 생성자를 추가하시오.
-# 4. 계산기(Calc) 클래스에 계산결과를 반환하는 calc()라는 함수를 추가하시오.
-# -> 입력받은 연산자와 두 수를 이용해 계산하시오.
-# -> -(뺄셈), /(나눗셈)은 큰 수를 기준으로 계산하도록 하시오. (min, max 내장 함수 사용 가능)
-# 5. (2)에서 생성한 인스턴스에 각각 연산자와 두 수를 입력해주는데, 이는 사용자에게 직접 입력 받도록 하시오.
-# 7. (4)에서 생성한 클래스 메소드를 이용해 결과값을 출력하시오.
 
-class Calc:
-    def __init__(self, operator, first, second):
-        self.operator = operator
-        self.first = first
-        self.second = second
+# 1. 원을 나타내는 Circle이라는 클래스를 생성하시오.
+# 2. 원(Circle) 클래스의 인스턴스를 생성하고, circle이라는 변수에 바인딩하시오.
+# 3. 원(Circle) 클래스에 반지름(radius), 중심좌표(x, y)를 입력받는 생성자를 추가하시오.
+# 4. 원(Circle) 클래스에 원의 넓이를 반환하는 getArea() 함수를 추가하시오.
+# -> hint. pi는 math library를 import 하여 사용하시오!
+# 5. 원(Circle) 클래스에 원의 중심을 반환하는 getCenter() 함수를 추가하시오.
+# 6. (2)에서 생성한 인스턴스에 각각 반지름과 중심좌표를 입력해주는데, 이는 사용자에게 직접 입력 받도록 하시오.
+# 7. (4), (5)에서 생성한 함수를 이용해 원의 중심과 중심좌표를 출력하시오.
+import math
 
-    def calc(self):
-        ncalc = 0
-        if self.operator == '+':
-            ncalc = self.first + self.second
-        elif self.operator == '*':
-            ncalc = self.first * self.second
-        elif self.operator == '-':
-            ncalc = max(self.first, self.second) - min(self.first, self.second)
-        elif self.operator == '/':
-            ncalc = max(self.first, self.second) / min(self.first, self.second)
-        return ncalc
+class Circle:
+    def __init__(self, radius, x, y):
+        self.radius = radius
+        self.x = x
+        self.y = y
 
-noperator = input('연산지 입력: ')
-nfirst = int(input('첫번째 수 입력: '))
-nsecond = int(input('두번째 수 입력: '))
+    def getArea(self):
+        return self.radius*self.radius*math.pi
 
-my_calc = Calc(noperator, nfirst, nsecond)
+    def getCenter(self):
+        return self.x, self.y
 
-print('result: ',my_calc.calc())
+radius = int(input('원의 반지름: '))
+x = int(input('원의 x좌표: '))
+y = int(input('원의 y좌표: '))
 
+circle = Circle(radius, x, y)
+
+print('원의 반지름: ', circle.getArea())
+print('원의 중심좌표: ', circle.getCenter())
