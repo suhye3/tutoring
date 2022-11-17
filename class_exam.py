@@ -46,12 +46,11 @@ class Calc:
                     nSecondMax = i 
                 return nSecondMax 
         
-def second_max_of_list_with_same_numbers(self): 
-    return self.second_max_of_list(True) 
+    def second_max_of_list_with_same_numbers(self): 
+        return self.second_max_of_list(True) 
 
 inputNum = input("문자열을 입력하세요: ") 
 listObj = Calc(inputNum) 
 print("first max number: ", listObj.max_of_list()) 
 print("second max number: ", listObj.second_max_of_list()) 
-print("second max number(중복제거): ", 
-listObj.second_max_of_list_with_same_numbers())
+print("second max number(중복제거): ", listObj.second_max_of_list_with_same_numbers())

@@ -43,7 +43,7 @@ class Circle:
         self.y = y
 
     def getArea(self):
-        return self.radius*self.radius*math.pi
+        return self.radius*self.radius*math.pi 
 
     def getCenter(self):
         return self.x, self.y
